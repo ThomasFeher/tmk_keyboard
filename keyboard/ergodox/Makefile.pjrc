@@ -109,6 +109,9 @@ colemak: all
 neo: OPT_DEFS += -DKEYMAP_NEO
 neo: all
 
+bone: OPT_DEFS += -DKEYMAP_BONE
+bone: all
+
 workman: OPT_DEFS += -DKEYMAP_WORKMAN
 workman: all
 
