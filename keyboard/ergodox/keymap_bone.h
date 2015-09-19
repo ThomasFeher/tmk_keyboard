@@ -159,7 +159,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		// left hand
 		ESC,    1,   2,   3,   4,   5,FN0,
 		MINS,   J,   D,   U,   A,   X, NO,
-		NO,     C,   T,   I,   E,   O,
+		FN4,    C,   T,   I,   E,   O,
 		LSFT, 	F, 	 V,LBRC,QUOT,SCLN, NO,
 		NO,  PSCR,  NO,LCTL, FN3,
 									   NO, NO,
@@ -168,14 +168,13 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		// right hand
 			 NO,    6,   7,   8,   9,   0,SLSH,
 			 DEL,   P,   H,   L,   M,   W,   Q,
-					B,   N,   R,   S,   G,  NO,
+					B,   N,   R,   S,   G, FN4,
 			 ENT,   Y,   Z,COMM, DOT,   K,RSFT,
 					   FN3,RCTL,NUBS,  NO, EQL,
 		NO,NO,
 		NO,
 		NO,RALT,SPC
 	),
-		//NUHS→#,NUBS→<,
 
     /* Keymap 3:
      *
@@ -224,16 +223,16 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Keymap 4:
      *
-     * special keys
+     * hardware bone layer 3
      *
      * ,--------------------------------------------------.           ,--------------------------------------------------.
-     * | Power  |      |      |      |      |      |Teensy|           |      |      |      |      |      |      | Teensy |
+     * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
      * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
-     * |        |      |      |      |      |      |      |           | Ins  | Vol+ |  App |      |      |      |        |
+     * |        |      |  _   |  [   |  ]   |  ^   |      |           |      |  !   |  <   |  >   |  =   |  &   |   @    |
      * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-     * |        |      |      |      |      |      |------|           |------| Mute | Last | Pl/Ps| Next | Stop |        |
+     * |        |  \   |  /   |  {   |  }   |  *   |------|           |------|  ?   |  (   |  )   |  -   |  :   |        |
      * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-     * |        |      |      |      |      |      |  KVM |           |      | Vol- |      |      |      |      |        |
+     * |        |  #   |  $   |  |   |  ~   |  `   |      |           |      |  +   |  %   |  "   |  '   |  '   |        |
      * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
      *   |      |      |      |      |      |                                       |      |      |      |      |      |
      *   `----------------------------------'                                       `----------------------------------'
@@ -246,26 +245,26 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 `--------------------'       `--------------------'
      */
 
-	//KEYMAP(
-		//// left hand
-		 //PWR,  NO,  NO,  NO,  NO,  NO,  NO,
-		  //NO,  NO,  NO,  NO,  NO,  NO,  NO,
-		  //NO,  NO,  NO,  NO,  NO,  NO,
-		  //NO,  NO,  NO,  NO,  NO,  NO,  NO,
-		  //NO,  NO,  NO,  NO,  NO,
-										//NO,  NO,
-											 //NO,
-								   //NO,  NO,  NO,
-		//// right hand
-			   //NO,  NO,  NO,  NO,  NO,  NO,  NO,
-			  //INS,VOLU, APP,  NO,  NO,  NO,  NO,
-				  //MUTE,MPRV,MPLY,MNXT,MSTP,  NO,
-			 //TRNS,VOLD,  NO,  NO,  NO,  NO,  NO,
-						 //NO,  NO,  NO,  NO,  NO,
-		  //NO,  NO,
-		  //NO,
-		  //NO,  NO,  NO
-	//),
+	KEYMAP(
+		// left hand
+		  NO,  NO,  NO,  NO,  NO,  NO,  NO,
+		  NO,  NO,FN21,FN28,FN29, FN7,  NO,
+		TRNS,FN25,FN17,FN27,FN30,FN31,
+		  NO,NUHS,FN14,FN25,FN9,  FN6,  NO,
+		  NO,  NO,  NO,  NO,  NO,
+										NO,  NO,
+											 NO,
+								   NO,  NO,  NO,
+		// right hand
+			   NO,  NO,  NO,  NO,  NO,  NO,  NO,
+			   NO,FN11,NUBS,FN24,FN20,FN16, FN8,
+				  FN10,FN18,FN19,SLSH,FN23,TRNS,
+			   NO,RBRC,FN15,FN12,FN26,FN22,  NO,
+						 NO,  NO,  NO,  NO,  NO,
+		  NO,  NO,
+		  NO,
+		  NO,  NO,  NO
+	),
 
 	// empty keymap for debugging
 	KEYMAP(NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO),
@@ -278,16 +277,65 @@ enum function_id {
     LAYER2,
 };
 
+enum macro_id {
+    GRAVE_MACRO,
+	BACKTICK_MACRO,
+};
+
 /*
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-	[0] = ACTION_FUNCTION(LAYER0),
-	[1] = ACTION_FUNCTION(LAYER1),
-	[2] = ACTION_FUNCTION(LAYER2),
-	[3] = ACTION_LAYER_MOMENTARY(3),
-	[4] = ACTION_LAYER_MOMENTARY(4),
+	[0] = ACTION_FUNCTION(LAYER0), /* bone */
+	[1] = ACTION_FUNCTION(LAYER1), /* poor mans QWERTZ */
+	[2] = ACTION_FUNCTION(LAYER2),/* poor mans bone */
+	[3] = ACTION_LAYER_MOMENTARY(3),/* poor mans bone layer 3 */
+	[4] = ACTION_LAYER_MOMENTARY(4),/* poor mans bone layer 4 */
+
+	[10] = ACTION_MODS_KEY(MOD_LSFT, KC_MINUS), /* ? */
+	[11] = ACTION_MODS_KEY(MOD_LSFT, KC_1), /* ! */
+	[12] = ACTION_MODS_KEY(MOD_LSFT, KC_2), /* " */
+	[13] = ACTION_MODS_KEY(MOD_LSFT, KC_3), /* § */
+	[14] = ACTION_MODS_KEY(MOD_LSFT, KC_4), /* $ */
+	[15] = ACTION_MODS_KEY(MOD_LSFT, KC_5), /* % */
+	[16] = ACTION_MODS_KEY(MOD_LSFT, KC_6), /* & */
+	[17] = ACTION_MODS_KEY(MOD_LSFT, KC_7), /* / */
+	[18] = ACTION_MODS_KEY(MOD_LSFT, KC_8), /* ( */
+	[19] = ACTION_MODS_KEY(MOD_LSFT, KC_9), /* ) */
+	[20] = ACTION_MODS_KEY(MOD_LSFT, KC_0), /* = */
+	[21] = ACTION_MODS_KEY(MOD_LSFT, KC_SLASH), /* _ */
+	[22] = ACTION_MODS_KEY(MOD_LSFT, KC_COMMA), /* ; */
+	[23] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT), /* : */
+	[24] = ACTION_MODS_KEY(MOD_LSFT, KC_NONUS_BSLASH), /* > */
+	[25] = ACTION_MODS_KEY(MOD_RALT, KC_NONUS_BSLASH), /* | */
+	[26] = ACTION_MODS_KEY(MOD_LSFT, KC_NONUS_HASH), /* ' */
+	[27] = ACTION_MODS_KEY(MOD_RALT, KC_7), /* { */
+	[28] = ACTION_MODS_KEY(MOD_RALT, KC_8), /* [ */
+	[29] = ACTION_MODS_KEY(MOD_RALT, KC_9), /* ] */
+	[30] = ACTION_MODS_KEY(MOD_RALT, KC_0), /* } */
+	[31] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRACKET), /* * */
+	[9] = ACTION_MODS_KEY(MOD_RALT, KC_RBRACKET), /* ~ */
+	[8] = ACTION_MODS_KEY(MOD_RALT, KC_Q), /* @ */
+	[7] = ACTION_MACRO(GRAVE_MACRO), /* ^ */
+	[6] = ACTION_MACRO(BACKTICK_MACRO), /* ` */
+
 };
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+    keyevent_t event = record->event;
+    switch (id) {
+        case GRAVE_MACRO:
+            return (event.pressed ?
+					MACRO(T(GRAVE), T(SPACE), END) : MACRO_NONE);
+            break;
+        case BACKTICK_MACRO:
+            return (event.pressed ?
+					MACRO(D(LSHIFT), T(EQUAL), U(LSHIFT), T(SPACE), END) : MACRO_NONE);
+            break;
+        default:
+            return MACRO_NONE;
+    }
+}
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
