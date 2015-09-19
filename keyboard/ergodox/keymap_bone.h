@@ -21,9 +21,9 @@
  * – standard Bone
  *   (no led)
  * – poor man’s QWERTZ ((partial) QWERTZ with Bone active on the host system)
- *   (bottom led)
+ *   (middle led)
  * – poor man’s Bone ((partial) Bone with QWERTZ active on the host system)
- *   (middle and bottom led)
+ *   (bottom led)
  *
  */
 
@@ -178,7 +178,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Keymap 3:
      *
-     * hardware Bone layer 4
+     * hardware bone layer 4
      *
      * ,--------------------------------------------------.           ,--------------------------------------------------.
      * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
@@ -194,9 +194,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                        ,-------------.       ,-------------.
      *                                        |      |      |       |      |      |
      *                                 ,------|------|------|       |------+------+------.
-     *                                 |      |      | LAlt |       | RCtrl|      |      |
-     *                                 | LSft |      |------|       |------|      |   0  |
-     *                                 |      |      | LGui |       | RGui |      |      |
+     *                                 |      |      |      |       |      |      |      |
+     *                                 |      |      |------|       |------|      |      |
+     *                                 |      |      |      |       |      |      |      |
      *                                 `--------------------'       `--------------------'
      */
 
