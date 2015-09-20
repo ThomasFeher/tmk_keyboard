@@ -48,7 +48,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 ,------|------|------|       |------+------+------.
      *                                 |      |      | ??   |       | RGui |      |      |
      *                                 |   ß  | LAlt |------|       |------| RAlt | Space|
-     *                                 |      |      |      |       |      |      |      |
+     *                                 |      |      |  LF  |       |  LF  |      |      |
      *                                 `--------------------'       `--------------------'
      */
 
@@ -61,7 +61,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         NUHS,PSCR, NO, HOME, END,
                                          NO,   NO,
                                              LGUI,
-                                 SLSH,  ENT,   NO,
+                                 SLSH,  ENT,  FN5,
         // right hand
                NO,   6,    7,    8,   9,   0, MINS,
               DEL,   Y,    U,    I,   O,   P, LBRC,
@@ -70,7 +70,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         LEFT, RGHT,NUBS, EQL, RBRC,
           NO, NO,
         RGUI,
-          NO, ENT, SPC
+         FN5, ENT, SPC
     ),
 
     /* Keymap 1:
@@ -151,7 +151,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 ,------|------|------|       |------+------+------.
      *                                 |      |      |      |       |      |      |      |
      *                                 |  ß   | Lalt |------|       |------| RAlt | Space|
-     *                                 |      |      |      |       |      |      |      |
+     *                                 |      |      |  LF  |       |  LF  |      |      |
      *                                 `--------------------'       `--------------------'
      */
 
@@ -164,16 +164,16 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		NO,  PSCR,  NO,LCTL, FN3,
 									   NO, NO,
 										   NO,
-								 MINS,LALT,NO,
+								MINS,LALT,FN5,
 		// right hand
 			 NO,    6,   7,   8,   9,   0,SLSH,
 			 DEL,   P,   H,   L,   M,   W,   Q,
 					B,   N,   R,   S,   G, FN4,
 			 ENT,   Z,   Y,COMM, DOT,   K,RSFT,
 					   FN3,RCTL,NUBS,  NO, EQL,
-		NO,NO,
-		NO,
-		NO,RALT,SPC
+		 NO,  NO,
+		 NO,
+		FN5,RALT,SPC
 	),
 
     /* Keymap 3:
@@ -266,6 +266,51 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		  NO,  NO,  NO
 	),
 
+    /* Keymap 5:
+     *
+     * F-layer
+     *
+     * ,--------------------------------------------------.           ,--------------------------------------------------.
+     * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |        |
+     * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
+     * |        |  F11 |  F12 |  F13 |  F14 |  F15 |      |           |      |  F16 |  F17 |  F18 |  F19 |  F20 |        |
+     * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+     * |        |      |      |      |      |      |------|           |------|      |      |      |      |      |        |
+     * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+     * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+     * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+     *   |      |      |      |      |      |                                       |      |      |      |      |      |
+     *   `----------------------------------'                                       `----------------------------------'
+     *                                        ,-------------.       ,-------------.
+     *                                        |      |      |       |      |      |
+     *                                 ,------|------|------|       |------+------+------.
+     *                                 |      |      |      |       |      |      |      |
+     *                                 |      |      |------|       |------|      |      |
+     *                                 |      |      |      |       |      |      |      |
+     *                                 `--------------------'       `--------------------'
+     */
+
+	KEYMAP(
+		// left hand
+		  NO,  F1,  F2,  F3,  F4,  F5,  NO,
+		  NO, F11, F12, F13, F14, F15,  NO,
+		  NO,  NO,  NO,  NO,  NO,  NO,
+		  NO,  NO,  NO,  NO,  NO,  NO,  NO,
+		  NO,  NO,  NO,  NO,  NO,
+										NO,  NO,
+											 NO,
+								   NO,  NO,TRNS,
+		// right hand
+			   NO,  F6,  F7,  F8,  F9, F10,  NO,
+			   NO, F16, F17, F18, F19, F20,  NO,
+				    NO,  NO,  NO,  NO,  NO,  NO,
+			   NO,  NO,  NO,  NO,  NO,  NO,  NO,
+						 NO,  NO,  NO,  NO,  NO,
+		  NO,  NO,
+		  NO,
+		TRNS,  NO,  NO
+	),
+
 	// empty keymap for debugging
 	KEYMAP(NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO),
 };
@@ -288,9 +333,10 @@ enum macro_id {
 static const uint16_t PROGMEM fn_actions[] = {
 	[0] = ACTION_FUNCTION(LAYER0), /* bone */
 	[1] = ACTION_FUNCTION(LAYER1), /* poor mans QWERTZ */
-	[2] = ACTION_FUNCTION(LAYER2),/* poor mans bone */
-	[3] = ACTION_LAYER_MOMENTARY(3),/* poor mans bone layer 3 */
-	[4] = ACTION_LAYER_MOMENTARY(4),/* poor mans bone layer 4 */
+	[2] = ACTION_FUNCTION(LAYER2), /* poor mans bone */
+	[3] = ACTION_LAYER_MOMENTARY(3), /* poor mans bone layer 3 */
+	[4] = ACTION_LAYER_MOMENTARY(4), /* poor mans bone layer 4 */
+	[5] = ACTION_LAYER_MOMENTARY(5), /* F-layer */
 
 	[10] = ACTION_MODS_KEY(MOD_LSFT, KC_MINUS), /* ? */
 	[11] = ACTION_MODS_KEY(MOD_LSFT, KC_1), /* ! */
