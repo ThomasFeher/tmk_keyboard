@@ -54,7 +54,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(
         // left hand
-         ESC,  1,   2,    3,   4, 5,  FN1,
+         ESC,  1,   2,    3,   4, 5,  FN2,
 		SLSH,  Q,   W,    E,   R, T, VOLU,
         LSFT,  A,   S,    D,   F, G,
         LCTRL, Z,   X,    C,   V, B, VOLD,
@@ -250,7 +250,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		  NO,  NO,  NO,  NO,  NO,  NO,  NO,
 		  NO,  NO,FN21,FN28,FN29, FN7,  NO,
 		TRNS,FN25,FN17,FN27,FN30,FN31,
-		  NO,NUHS,FN14,FN25,FN9,  FN6,  NO,
+		  NO,NUHS,FN14,FN1 ,FN9,  FN6,  NO,
 		  NO,  NO,  NO,  NO,  NO,
 										NO,  NO,
 											 NO,
@@ -332,7 +332,7 @@ enum macro_id {
  */
 static const uint16_t PROGMEM fn_actions[] = {
 	[0] = ACTION_FUNCTION(LAYER0), /* bone */
-	[1] = ACTION_FUNCTION(LAYER1), /* poor mans QWERTZ */
+	[1] = ACTION_MODS_KEY(MOD_RALT, KC_NONUS_BSLASH), /* | */
 	[2] = ACTION_FUNCTION(LAYER2), /* poor mans bone */
 	[3] = ACTION_LAYER_MOMENTARY(3), /* poor mans bone layer 3 */
 	[4] = ACTION_LAYER_MOMENTARY(4), /* poor mans bone layer 4 */
