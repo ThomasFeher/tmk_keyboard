@@ -147,10 +147,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *   |      | Prnt |      | LCtl |  L4  |                                       |  L4  | RCtl |  T1  |      |  T3  |
      *   `----------------------------------'                                       `----------------------------------'
      *                                        ,-------------.       ,-------------.
-     *                                        |      |      |       |      |      |
+     *                                        |      |      |       |      | RAlt |
      *                                 ,------|------|------|       |------+------+------.
      *                                 |      |      |      |       |      |      |      |
-     *                                 |  ß   | Lalt |------|       |------| RAlt | Space|
+     *                                 |  ß   | Lalt |------|       |------| LAlt | Space|
      *                                 |      |      |  LF  |       |  LF  |      |      |
      *                                 `--------------------'       `--------------------'
      */
@@ -171,9 +171,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 					B,   N,   R,   S,   G, FN4,
 			 ENT,   Z,   Y,COMM, DOT,   K,RSFT,
 					   FN3,RCTL,NUBS,  NO, EQL,
-		 NO,  NO,
+		 NO,RALT,
 		 NO,
-		FN5,RALT,SPC
+		FN5,LALT,SPC
 	),
 
     /* Keymap 3:
