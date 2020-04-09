@@ -212,7 +212,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 								 NO,NO,NO,
 		// right hand
 			   NO,  NO,  NO,  NO,  NO,  NO,  NO,
-			   NO,  NO,   7,   8,   9,RBRC,MINS,
+			   NO,  NO,   7,   8,   9,RBRC, SLSH,
 					NO,   4,   5,   6,COMM, DOT,
 			   NO,  NO,   1,   2,   3,  NO, TRNS,
 					   TRNS,  NO,  NO,  NO,  NO,
